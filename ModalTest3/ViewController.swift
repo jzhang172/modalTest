@@ -76,15 +76,14 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate 
             var vc = segue.destinationViewController as UIViewController
             
             var controller = vc.popoverPresentationController
-            controller?.sourceRect = CGRectMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds),0,0)
-            vc.preferredContentSize=CGSize(width: 400, height: 200)
-            // vc.view.bounds = CGRect(x: 10, y: 100, width: 10, height: 10)
-            
-            
-            
+            controller?.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+            controller?.sourceView = self.view
+            controller?.sourceRect = CGRectMake(0.0, self.view.layer.bounds.height * 0.5,0.0,0.0)
+            vc.preferredContentSize=CGSize(width: 300, height: 170)
             if controller != nil{
                 controller?.delegate = self
             }
+            
             
             
             
